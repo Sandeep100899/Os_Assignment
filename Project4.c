@@ -1,6 +1,36 @@
 #include<unistd.h>
 #include<stdio.h>
 
+void ssort(int a[],int b[], int p[],  int n)
+{
+	int i, j, min, temp, mpos;
+//	min = a[0];
+	for(i = 0; i < n; i++ )
+	{
+		mpos = i;
+		for(j = i+ 1; j< n; j++)
+		{
+			if(a[mpos] > a[j])
+			{
+//				min = a[j];
+				mpos = j;
+			}
+		}
+//		min = a[i];
+		temp = a[mpos];
+		a[mpos] = a[i];
+		a[i] = temp;
+		
+		temp = b[mpos];
+		b[mpos] = b[i];
+		b[i] = temp;
+		
+		temp = p[mpos];
+		p[mpos] = p[i];
+		p[i] = temp; 
+		
+	}
+}
 
 int main()
 {
